@@ -3,7 +3,7 @@ djangorestframework==3.16.1
 djangorestframework-simplejwt==5.5.1
 python-decouple==3.8
 psycopg2-binary==2.9.11
-drf-yasg==1.23.5
+drf-yasg==1.21.0
 PyJWT==2.12.1
 sqlparse==0.5.5
 asgiref==3.11.1

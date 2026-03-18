@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Virtual environments
+venv/
+.venv/
+backend/venv/
+
+# Env files (never commit secrets)
+.env
+.env.*
+backend/.env
+frontend/.env
+
+# SQLite
+*.sqlite3
+backend/db.sqlite3
+
+# Node
+node_modules/
+frontend/node_modules/
+dist/
+dist-ssr/
+
+# Vite
+*.local
+
+# IDEs / OS
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,20 @@
+{
+  "name": "crm-backend",
+  "version": "1.0.0",
+  "description": "CRM Backend API",
+  "main": "manage.py",
+  "scripts": {
+    "start": "python manage.py runserver",
+    "migrate": "python manage.py migrate",
+    "createsuperuser": "python manage.py createsuperuser",
+    "collectstatic": "python manage.py collectstatic --noinput",
+    "test": "python manage.py test"
+  },
+  "keywords": [
+    "django",
+    "api",
+    "crm"
+  ],
+  "author": "CRM Team",
+  "license": "MIT"
+}
