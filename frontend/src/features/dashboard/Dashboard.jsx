@@ -17,6 +17,7 @@ import {
   PhoneIcon,
   MailIcon,
 } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 export default function Dashboard() {
   const { user } = useAuthStore();
@@ -37,10 +38,7 @@ export default function Dashboard() {
 
   const fetchDashboardData = async () => {
     try {
-      const [leadsResponse, activitiesResponse] = await Promise.all([
-        leadsAPI.getLeads(),
-        activitiesAPI.getActivities(),
-      ]);
+      const leadsResponse = await leadsAPI.getLeads();
 
       const leads = leadsResponse.data;
       setStats({
@@ -136,9 +134,12 @@ export default function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {statsCards.map((stat) => (
-          <div
+        {statsCards.map((stat, index) => (
+          <motion.div
             key={stat.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.3 }}
             className="bg-white overflow-hidden shadow rounded-lg"
           >
             <div className="p-5">
@@ -162,7 +163,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

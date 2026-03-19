@@ -44,6 +44,20 @@ export default function Layout({ children }) {
                 >
                   Leads
                 </button>
+                <button
+                  onClick={() => navigate("/pipeline")}
+                  className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Pipeline
+                </button>
+                {user?.role === "admin" && (
+                  <button
+                    onClick={() => navigate("/users")}
+                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Users
+                  </button>
+                )}
                 <div className="relative">
                   <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
