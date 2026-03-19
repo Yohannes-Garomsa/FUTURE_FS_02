@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
-import { BellIcon, UserIcon, LogoutIcon } from "@heroicons/react/24/outline";
+import { authAPI } from "../../services/api";
+import { BellIcon, UserIcon, ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 
 export default function Layout({ children }) {
   const { user, isAuthenticated, logout } = useAuthStore();
@@ -94,7 +95,7 @@ export default function Layout({ children }) {
                       onClick={handleLogout}
                       className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
-                      <LogoutIcon className="h-5 w-5 mr-2 inline" />
+                      <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 inline" />
                       Logout
                     </button>
                   </div>

@@ -7,7 +7,7 @@ import {
   ClockIcon,
   UserIcon,
   PhoneIcon,
-  MailIcon,
+  EnvelopeIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 import { MoreVertical, Edit, Trash2, Plus, ArrowLeft } from "react-feather";

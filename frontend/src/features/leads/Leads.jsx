@@ -4,7 +4,7 @@ import { useAuthStore } from "../../store/store";
 import { leadsAPI } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import {
-  SearchIcon,
+  MagnifyingGlassIcon,
   PlusCircleIcon,
   PencilIcon,
   TrashIcon,
@@ -91,7 +91,7 @@ export default function Leads() {
             <h2 className="text-lg font-medium text-gray-900">All Leads</h2>
             <div className="flex items-center space-x-2">
               <div className="relative">
-                <SearchIcon className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                <MagnifyingGlassIcon className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search leads..."

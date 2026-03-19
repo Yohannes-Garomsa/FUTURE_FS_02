@@ -15,7 +15,7 @@ import {
   CalendarIcon,
   UsersIcon,
   PhoneIcon,
-  MailIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
@@ -96,7 +96,7 @@ export default function Dashboard() {
       id: 3,
       title: "Contacted",
       value: stats.contactedLeads,
-      icon: MailIcon,
+      icon: EnvelopeIcon,
       color: "bg-yellow-500",
     },
     {
