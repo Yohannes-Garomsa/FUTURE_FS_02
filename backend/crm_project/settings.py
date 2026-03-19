@@ -88,17 +88,19 @@ WSGI_APPLICATION = 'crm_project.wsgi.application'
 # =============================================================================
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+if config('DB_ENGINE', default='') == 'postgresql':
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME', default='crm_db'),
         'USER': config('DB_USER', default='crm_user'),
         'PASSWORD': config('DB_PASSWORD', default=''),
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
-        'OPTIONS': {
-            'connect_timeout': 5,
-        },
     }
-}
 
 # =============================================================================
 # AUTHENTICATION

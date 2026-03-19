@@ -6,24 +6,31 @@ export const useAuthStore = create(
     (set) => ({
       user: null,
       token: null,
+      refreshToken: null,
       isAuthenticated: false,
       loading: false,
 
-      login: (userData, token) => {
+      login: (userData, token, refreshToken) => {
         if (token) localStorage.setItem("token", token);
-        set({ user: userData, token, isAuthenticated: true });
+        if (refreshToken) localStorage.setItem("refresh_token", refreshToken);
+        set({ user: userData, token, refreshToken, isAuthenticated: true });
       },
-      logout: () => {
-        localStorage.removeItem("token");
-        set({ user: null, token: null, isAuthenticated: false });
-      },
-      setLoading: (status) => set({ loading: status }),
-      setUser: (user) => set({ user }),
-    }),
-    {
-      name: "auth-storage",
-      partialize: (state) => ({ token: state.token }), // only persist token
-    }
+          logout: () => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("refresh_token");
+            set({ user: null, token: null, refreshToken: null, isAuthenticated: false });
+          },
+          setLoading: (status) => set({ loading: status }),
+          setUser: (user) => set({ user }),
+          setToken: (token) => {
+            localStorage.setItem("token", token);
+            set({ token });
+          },
+        }),
+        {
+          name: "auth-storage",
+          partialize: (state) => ({ token: state.token, refreshToken: state.refreshToken }),
+        }
   )
 );
 

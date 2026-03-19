@@ -11,7 +11,6 @@ export default function Layout({ children }) {
 
   const handleLogout = async () => {
     try {
-      await authAPI.logout();
       logout();
       navigate("/login");
     } catch (error) {

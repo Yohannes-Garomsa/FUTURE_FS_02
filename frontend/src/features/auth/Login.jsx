@@ -17,7 +17,17 @@ export default function Login() {
 
     try {
       const response = await authAPI.login(formData);
-      login(response.data.user, response.data.access);
+      const { access, refresh } = response.data;
+      
+      // Temporarily set token to access the /me API
+      useAuthStore.getState().setToken(access);
+      
+      // Fetch full user details using the newly acquired token
+      const { usersAPI } = await import("../../services/api");
+      const meResponse = await usersAPI.getMe();
+      
+      // Register full state
+      login(meResponse.data, access, refresh);
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.detail || "Login failed");

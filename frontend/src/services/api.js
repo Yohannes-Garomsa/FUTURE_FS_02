@@ -21,18 +21,36 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
+    const originalRequest = error.config;
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      try {
+        const refreshToken = localStorage.getItem("refresh_token");
+        if (refreshToken) {
+          const res = await axios.post(`${API_BASE_URL}/auth/refresh/`, {
+            refresh: refreshToken,
+          });
+          const { access } = res.data;
+          useAuthStore.getState().setToken(access);
+          originalRequest.headers.Authorization = `Bearer ${access}`;
+          return api(originalRequest);
+        }
+      } catch (err) {
+        useAuthStore.getState().logout();
+        window.location.href = "/login";
+      }
+    }
     if (error.response?.status === 401) {
-      useAuthStore.getState().logout();
+       useAuthStore.getState().logout();
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 export const authAPI = {
-  login: (credentials) => api.post("/token/", credentials),
+  login: (credentials) => api.post("/auth/login/", credentials),
   register: (userData) => api.post("/users/", userData),
-  logout: () => api.post("/token/logout/"),
 };
 
 export const leadsAPI = {
@@ -42,11 +60,11 @@ export const leadsAPI = {
   updateLead: (id, leadData) => api.patch(`/leads/${id}/`, leadData),
   deleteLead: (id) => api.delete(`/leads/${id}/`),
   assignLead: (id, userId) =>
-    api.patch(`/leads/${id}/assign/`, { user_id: userId }),
+    api.patch(`/leads/${id}/assign/`, { assigned_to: userId }),
 };
 
 export const activitiesAPI = {
-  getActivities: (leadId) => api.get(`/leads/${leadId}/activities/`),
+  getActivities: (leadId) => api.get(`/activities/?lead=${leadId}`),
   createActivity: (activityData) => api.post("/activities/", activityData),
 };
 
