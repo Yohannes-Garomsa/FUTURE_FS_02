@@ -1,9 +1,35 @@
-Django==6.0.3
-djangorestframework==3.16.1
-djangorestframework-simplejwt==5.5.1
-python-decouple==3.8
-psycopg2-binary==2.9.11
-drf-yasg==1.21.0
-PyJWT==2.12.1
-sqlparse==0.5.5
-asgiref==3.11.1
+# Core
+Django>=4.2,<5.0
+djangorestframework>=3.14,<4.0
+djangorestframework-simplejwt>=5.3,<6.0
+
+# Database
+psycopg2-binary>=2.9,<3.0
+
+# Filtering & Search
+django-filter>=23.0
+
+# CORS
+django-cors-headers>=4.0
+
+# API Documentation
+drf-spectacular>=0.27
+
+# Environment variables
+python-decouple>=3.8
+
+# Celery + Redis
+celery>=5.3,<6.0
+redis>=5.0,<6.0
+
+# Image handling (for avatars)
+Pillow>=10.0
+
+# Production WSGI
+gunicorn>=21.2
+
+# Testing
+factory-boy>=3.3
+pytest>=7.4
+pytest-django>=4.5
+pytest-cov>=4.1

@@ -7,6 +7,4 @@ router.register(r'users', UserViewSet, basename='user')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('me/', UserViewSet.as_view({'get': 'me'}), name='user-me'),
-    path('<int:pk>/assign-role/', UserViewSet.as_view({'post': 'assign_role'}), name='user-assign-role'),
 ]

@@ -7,5 +7,4 @@ router.register(r'activities', ActivityViewSet, basename='activity')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('<int:pk>/by-lead/', ActivityViewSet.as_view({'get': 'by_lead'}), name='activity-by-lead'),
 ]
