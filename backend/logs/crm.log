@@ -163,3 +163,470 @@ redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connec
 [2026-03-21 19:03:44,096] ERROR django.request log Internal Server Error: /api/auth/login/
 [2026-03-21 19:18:04,204] INFO crm signals New user created: codex-login-check@example.com (role=agent)
 [2026-03-21 19:18:11,531] INFO crm signals New user created: codex-login-check@example.com (role=agent)
+[2026-03-22 18:39:57,871] ERROR crm exceptions Unhandled exception in <rest_framework_simplejwt.views.TokenObtainPairView object at 0x73f71ebc7ce0>
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 422, in initial
+    self.check_throttles(request)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 605, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 611, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2026-03-22 18:39:57,886] ERROR django.request log Internal Server Error: /api/auth/login/
+[2026-03-22 18:42:26,218] ERROR crm exceptions Unhandled exception in <rest_framework_simplejwt.views.TokenObtainPairView object at 0x73f71e314b60>
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 422, in initial
+    self.check_throttles(request)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 605, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 611, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2026-03-22 18:42:26,223] ERROR django.request log Internal Server Error: /api/auth/login/
+[2026-03-22 18:42:34,938] ERROR crm exceptions Unhandled exception in <rest_framework_simplejwt.views.TokenObtainPairView object at 0x73f71eb83dd0>
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 422, in initial
+    self.check_throttles(request)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 605, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 611, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2026-03-22 18:42:34,941] ERROR django.request log Internal Server Error: /api/auth/login/
+[2026-03-22 18:44:09,613] INFO crm signals New user created: geda@gmail.com (role=admin)
+[2026-03-22 18:45:23,048] ERROR crm exceptions Unhandled exception in <rest_framework_simplejwt.views.TokenObtainPairView object at 0x7e32f2bc6840>
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 422, in initial
+    self.check_throttles(request)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 605, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 611, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2026-03-22 18:45:23,052] ERROR django.request log Internal Server Error: /api/auth/login/
+[2026-03-22 18:49:31,036] INFO crm views Lead created: Yohannes Garomsa by geda@gmail.com
+[2026-03-22 18:49:50,238] ERROR crm exceptions Unhandled exception in <leads.views.LeadViewSet object at 0x7e5219bdb140>
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    yield
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 180, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 1018, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 843, in execute_command
+    self.connection = self.connection_pool.get_connection()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 133, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 428, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 109, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 605, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 611, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/leads/views.py", line 83, in perform_create
+    notify_lead_assigned.delay(str(lead.id), str(lead.assigned_to.id))
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/app/task.py", line 608, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/app/base.py", line 946, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 417, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 172, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 150, in start
+    self._consume_from(initial_task_id)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 179, in _consume_from
+    with self.reconnect_on_error():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 136, in reconnect_on_error
+    raise RuntimeError(E_RETRY_LIMIT_EXCEEDED) from e
+RuntimeError: 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+[2026-03-22 18:49:50,258] ERROR django.request log Internal Server Error: /api/leads/
+[2026-03-22 18:50:14,670] INFO crm views Lead created: Yohannes Garomsa by geda@gmail.com
+[2026-03-22 18:50:33,698] ERROR crm exceptions Unhandled exception in <leads.views.LeadViewSet object at 0x7e5219bae7e0>
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
+    yield
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 180, in _consume_from
+    self._pubsub.subscribe(key)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 1018, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 843, in execute_command
+    self.connection = self.connection_pool.get_connection()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 378, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 379, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 764, in _connect
+    raise err
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 752, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 133, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 428, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 109, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 605, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/client.py", line 611, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/utils.py", line 183, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 1483, in get_connection
+    connection.connect()
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/redis/connection.py", line 384, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/leads/views.py", line 83, in perform_create
+    notify_lead_assigned.delay(str(lead.id), str(lead.assigned_to.id))
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/app/task.py", line 608, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/app/base.py", line 946, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 417, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 172, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 150, in start
+    self._consume_from(initial_task_id)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 179, in _consume_from
+    with self.reconnect_on_error():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/blackman/Desktop/FUTURE_FS_02/backend/venv/lib/python3.12/site-packages/celery/backends/redis.py", line 136, in reconnect_on_error
+    raise RuntimeError(E_RETRY_LIMIT_EXCEEDED) from e
+RuntimeError: 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+[2026-03-22 18:50:33,704] ERROR django.request log Internal Server Error: /api/leads/
