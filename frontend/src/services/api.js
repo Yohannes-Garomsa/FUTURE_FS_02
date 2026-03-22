@@ -50,17 +50,30 @@ api.interceptors.response.use(
 
 export const authAPI = {
   login: (credentials) => api.post("/auth/login/", credentials),
-  register: (userData) => api.post("/users/", userData),
+  refresh: (refresh) => api.post("/auth/refresh/", { refresh }),
 };
 
 export const leadsAPI = {
-  getLeads: () => api.get("/leads/"),
+  getLeads: (params) => api.get("/leads/", { params }),
   getLead: (id) => api.get(`/leads/${id}/`),
   createLead: (leadData) => api.post("/leads/", leadData),
   updateLead: (id, leadData) => api.patch(`/leads/${id}/`, leadData),
   deleteLead: (id) => api.delete(`/leads/${id}/`),
   assignLead: (id, userId) =>
     api.patch(`/leads/${id}/assign/`, { assigned_to: userId }),
+  getAttachments: (id) => api.get(`/leads/${id}/attachments/`),
+  uploadAttachment: (id, formData) =>
+    api.post(`/leads/${id}/attachments/`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    }),
+};
+
+export const pipelineAPI = {
+  getPipelines: () => api.get("/pipelines/"),
+  getPipelineBoard: (id) => api.get(`/pipelines/${id}/board/`),
+  moveLead: (pipelineLeadId, data) =>
+    api.post(`/pipeline-leads/${pipelineLeadId}/move/`, data),
+  reorderStages: (data) => api.post("/pipeline-stages/reorder/", data),
 };
 
 export const activitiesAPI = {
@@ -68,9 +81,19 @@ export const activitiesAPI = {
   createActivity: (activityData) => api.post("/activities/", activityData),
 };
 
+export const analyticsAPI = {
+  getDashboardStats: () => api.get("/analytics/dashboard/"),
+  getAgentPerformance: () => api.get("/analytics/performance/"),
+  getLeadTrends: (params) => api.get("/analytics/trends/", { params }),
+  getSourceConversion: () => api.get("/analytics/source-conversion/"),
+};
+
 export const usersAPI = {
   getUsers: () => api.get("/users/"),
   getMe: () => api.get("/users/me/"),
-  assignRole: (userId, roleData) =>
-    api.post(`/users/${userId}/assign-role/`, roleData),
+  updateMe: (data) => api.patch("/users/me/", data),
+  assignRole: (userId, role) =>
+    api.post(`/users/${userId}/assign-role/`, { role }),
 };
+
+export default api;

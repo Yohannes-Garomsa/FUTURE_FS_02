@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/store";
-import { authAPI } from "./services/api";
+import { usersAPI } from "./services/api";
 
 // Layout
 import Layout from "./components/layout/Layout";
@@ -25,13 +26,14 @@ export default function App() {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
+        const refreshToken = localStorage.getItem("refresh_token");
         if (!token) {
           logout();
           setLoading(false);
           return;
         }
-        const response = await authAPI.getMe();
-        login(response.data, token);
+        const response = await usersAPI.getMe();
+        login(response.data, token, refreshToken);
       } catch (error) {
         logout();
       } finally {
@@ -44,6 +46,7 @@ export default function App() {
 
   return (
     <Router>
+      <Toaster position="top-right" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         

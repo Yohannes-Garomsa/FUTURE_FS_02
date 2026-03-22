@@ -59,13 +59,17 @@ class PipelineStageCreateSerializer(serializers.ModelSerializer):
 class PipelineLeadSerializer(serializers.ModelSerializer):
     """Serializer for lead-pipeline association."""
     lead_name = serializers.CharField(source='lead.full_name', read_only=True)
+    lead_email = serializers.EmailField(source='lead.email', read_only=True)
+    lead_company = serializers.CharField(source='lead.company', read_only=True)
+    lead_priority = serializers.CharField(source='lead.priority', read_only=True)
     stage_name = serializers.CharField(source='stage.name', read_only=True)
 
     class Meta:
         model = PipelineLead
         fields = [
-            'id', 'lead', 'lead_name', 'pipeline',
-            'stage', 'stage_name', 'entered_stage_at', 'created_at',
+            'id', 'lead', 'lead_name', 'lead_email', 'lead_company',
+            'lead_priority', 'pipeline', 'stage', 'stage_name',
+            'entered_stage_at', 'created_at',
         ]
         read_only_fields = ['id', 'entered_stage_at', 'created_at']
 

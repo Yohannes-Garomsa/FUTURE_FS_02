@@ -13,18 +13,21 @@ import {
 export default function Leads() {
   const { user } = useAuthStore();
   const navigate = useNavigate();
-  const { data: fetchResponse = { data: [] }, isLoading: loading, refetch } = useQuery({
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredLeads, setFilteredLeads] = useState([]);
+
+  const { data: fetchResponse = { data: { results: [] } }, isLoading: loading, refetch } = useQuery({
     queryKey: ['leads'],
     queryFn: async () => await leadsAPI.getLeads(),
   });
 
-  const leads = fetchResponse.data;
+  const leads = fetchResponse.data.results || [];
 
   useEffect(() => {
     if (leads) {
       if (searchTerm) {
          setFilteredLeads(leads.filter((lead) =>
-            lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            lead.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             lead.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
             lead.company?.toLowerCase().includes(searchTerm.toLowerCase())
          ));
@@ -69,7 +72,7 @@ export default function Leads() {
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">Leads</h1>
           <p className="mt-1 text-sm text-gray-600">
-            Manage and track your leads, {user?.name}!
+            Manage and track your leads, {user?.full_name}!
           </p>
         </div>
         {canEditOrDelete && (
@@ -131,7 +134,7 @@ export default function Leads() {
                 {filteredLeads.map((lead) => (
                   <tr key={lead.id}>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {lead.name}
+                      {lead.full_name}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {lead.email}
@@ -147,7 +150,7 @@ export default function Leads() {
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {lead.assigned_to?.name || "Unassigned"}
+                      {lead.assigned_to_name || "Unassigned"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       {canEditOrDelete && (
