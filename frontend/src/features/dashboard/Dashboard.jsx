@@ -6,8 +6,8 @@ import {
   PieChart, Pie, Cell,
 } from "recharts";
 import {
-  CalendarIcon, UsersIcon, PhoneIcon, EnvelopeIcon,
-  TrendingUpIcon, DollarSign, Target, Award, Hash, Zap, RefreshCw,
+  Calendar, Users, Phone, Mail,
+  TrendingUp, DollarSign, Target, Award, Hash, Zap, RefreshCw,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
