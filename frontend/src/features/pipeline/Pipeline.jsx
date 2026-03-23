@@ -133,15 +133,15 @@ export default function Pipeline() {
   }
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 h-full bg-gray-50 flex flex-col overflow-hidden">
+    <div className="px-4 sm:px-6 lg:px-8 py-8 h-full bg-gray-50 dark:bg-slate-950 flex flex-col overflow-hidden transition-colors duration-500">
       <header className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-3 mb-1">
-             <h1 className="text-3xl font-black text-gray-900 tracking-tight uppercase leading-none">
-                {pipelineInfo?.name?.split(' ')[0]} <span className="text-indigo-600 font-extrabold">{pipelineInfo?.name?.split(' ').slice(1).join(' ')}</span>
+             <h1 className="text-3xl font-black text-gray-900 dark:text-white tracking-tight uppercase leading-none">
+                {pipelineInfo?.name?.split(' ')[0]} <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">{pipelineInfo?.name?.split(' ').slice(1).join(' ')}</span>
              </h1>
           </div>
-          <p className="text-gray-500 font-medium text-sm">Orchestrate and optimize deal velocity across all funnel stages.</p>
+          <p className="text-gray-500 dark:text-slate-400 font-medium text-sm">Orchestrate and optimize deal velocity across all funnel stages.</p>
         </div>
         
         <div className="flex items-center gap-3">
@@ -150,10 +150,10 @@ export default function Pipeline() {
               <input 
                 type="text" 
                 placeholder="Find Intelligence..."
-                className="bg-white border border-gray-200 rounded-xl py-2 pl-9 pr-4 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-50 focus:border-indigo-200 transition-all w-48 lg:w-64"
+                className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl py-2 pl-9 pr-4 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-50 dark:focus-within:ring-indigo-900/20 focus:border-indigo-200 dark:focus:border-indigo-800 transition-all w-48 lg:w-64 dark:text-white"
               />
            </div>
-           <button className="p-2.5 bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-indigo-600 transition-all hover:shadow-lg active:scale-95">
+           <button className="p-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-gray-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all hover:shadow-lg active:scale-95">
               <Filter size={18} />
            </button>
         </div>

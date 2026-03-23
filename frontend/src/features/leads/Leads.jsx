@@ -66,11 +66,11 @@ export default function Leads() {
   };
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 bg-gray-50/10 dark:bg-slate-950/20 min-h-full">
+    <div className="px-4 sm:px-6 lg:px-8 py-8 bg-gray-50/10 dark:bg-slate-950/20 min-h-full transition-colors duration-500">
       {loading && <div className="absolute inset-0 bg-white/50 dark:bg-slate-900/50 flex items-center justify-center z-10">Loading...</div>}
       <div className="sm:flex sm:items-center sm:justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">Leads</h1>
+          <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight text-shadow-glow">Leads</h1>
           <p className="mt-1 text-sm text-gray-600 dark:text-slate-400 font-medium">
             Manage and track your leads, <span className="text-indigo-600 dark:text-indigo-400 font-bold">{user?.full_name}</span>!
           </p>
@@ -91,10 +91,10 @@ export default function Leads() {
       <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase border-l-4 border-indigo-500 pl-4">All Leads</h2>
+            <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase border-l-4 border-indigo-500 pl-4 text-shadow-glow">All Leads</h2>
             <div className="flex items-center space-x-2">
-              <div className="relative">
-                <MagnifyingGlassIcon className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <div className="relative group">
+                <MagnifyingGlassIcon className="absolute left-3 top-3 h-4 w-4 text-gray-400 group-focus-within:text-indigo-600 transition-colors" />
                 <input
                   type="text"
                   placeholder="Search leads..."
@@ -106,7 +106,7 @@ export default function Leads() {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto custom-scrollbar">
             <table className="min-w-full divide-y divide-gray-100 dark:divide-slate-800">
               <thead className="bg-gray-50/50 dark:bg-slate-800/50">
                 <tr>
@@ -157,13 +157,13 @@ export default function Leads() {
                         <>
                           <button
                             onClick={() => navigate(`/leads/${lead.id}`)}
-                            className="text-indigo-600 hover:text-indigo-900 mr-3"
+                            className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 mr-3 transition-colors"
                           >
                             <PencilIcon className="h-4 w-4" />
                           </button>
                           <button
                             onClick={() => handleDelete(lead.id)}
-                            className="text-red-600 hover:text-red-900"
+                            className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
                           >
                             <TrashIcon className="h-4 w-4" />
                           </button>

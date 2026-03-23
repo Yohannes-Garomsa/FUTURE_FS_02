@@ -751,3 +751,6 @@ Retry limit exceeded while trying to reconnect to the Celery redis result store 
 [2026-03-23 05:48:07,823] INFO crm views Role manager assigned to user agent@test.com by admin@test.com
 [2026-03-23 05:48:08,072] INFO crm signals New user created: agent@test.com (role=agent)
 [2026-03-23 05:48:08,290] INFO crm signals New user created: agent@test.com (role=agent)
+[2026-03-23 06:50:51,775] INFO crm views Lead soft-deleted: HYm assefa by geda@gmail.com
+[2026-03-23 06:50:55,784] INFO crm views Lead soft-deleted: Yohannes Garomsa by geda@gmail.com
+[2026-03-23 06:50:59,988] INFO crm views Lead soft-deleted: Yohannes Garomsa by geda@gmail.com
