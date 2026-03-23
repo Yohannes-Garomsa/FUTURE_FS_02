@@ -754,3 +754,16 @@ Retry limit exceeded while trying to reconnect to the Celery redis result store 
 [2026-03-23 06:50:51,775] INFO crm views Lead soft-deleted: HYm assefa by geda@gmail.com
 [2026-03-23 06:50:55,784] INFO crm views Lead soft-deleted: Yohannes Garomsa by geda@gmail.com
 [2026-03-23 06:50:59,988] INFO crm views Lead soft-deleted: Yohannes Garomsa by geda@gmail.com
+[2026-03-23 06:55:52,268] INFO crm views Lead created: Yohannes Garomsa by geda@gmail.com
+[2026-03-23 06:55:52,507] INFO crm tasks Assignment email sent to geda@gmail.com for lead Yohannes Garomsa
+[2026-03-23 06:55:52,515] INFO crm tasks Lead assignment notification sent to geda@gmail.com for lead Yohannes Garomsa
+[2026-03-23 06:57:28,270] INFO crm views Lead created: john doe by geda@gmail.com
+[2026-03-23 06:58:01,253] INFO crm tasks Assignment email sent to geda@gmail.com for lead john doe
+[2026-03-23 06:58:01,260] INFO crm tasks Lead assignment notification sent to geda@gmail.com for lead john doe
+[2026-03-23 06:58:25,102] INFO crm views Attachment uploaded to lead Yohannes Garomsa: my-cv.pdf
+[2026-03-23 20:32:26,355] INFO crm views Lead created: kirub Jeba by geda@gmail.com
+[2026-03-23 20:32:26,524] INFO crm tasks Assignment email sent to admin@gmail.com for lead kirub Jeba
+[2026-03-23 20:32:26,531] INFO crm tasks Lead assignment notification sent to admin@gmail.com for lead kirub Jeba
+[2026-03-23 20:35:12,232] INFO crm views Lead created: bruk Garomsa by geda@gmail.com
+[2026-03-23 20:35:12,305] INFO crm tasks Assignment email sent to admin@gmail.com for lead bruk Garomsa
+[2026-03-23 20:35:12,305] INFO crm tasks Lead assignment notification sent to admin@gmail.com for lead bruk Garomsa

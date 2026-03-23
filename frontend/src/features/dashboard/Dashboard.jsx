@@ -114,7 +114,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 space-y-8 bg-gray-50/30 dark:bg-slate-950/50 min-h-full transition-colors duration-500">
+    <div className="px-4 sm:px-6 lg:px-8 py-8 space-y-8 bg-slate-50 dark:bg-slate-950/50 min-h-full transition-colors duration-300">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <div className="flex items-center gap-3 mb-1">

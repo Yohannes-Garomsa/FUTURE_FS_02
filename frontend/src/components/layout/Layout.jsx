@@ -134,11 +134,16 @@ export default function Layout({ children }) {
                 className="p-3 bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-2xl text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-100 dark:hover:border-indigo-900 transition-all hover:shadow-lg active:scale-95 group"
                 title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {isDarkMode ? (
-                  <Sun size={18} className="group-hover:rotate-12 transition-transform" />
-                ) : (
-                  <Moon size={18} className="group-hover:-rotate-12 transition-transform" />
-                )}
+                <motion.div
+                  animate={{ rotate: isDarkMode ? 45 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {isDarkMode ? (
+                    <Sun size={18} className="group-hover:rotate-12 transition-transform" />
+                  ) : (
+                    <Moon size={18} className="group-hover:-rotate-12 transition-transform" />
+                  )}
+                </motion.div>
               </button>
 
               <button className="relative p-2 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-800 rounded-xl transition-all group">
@@ -256,6 +261,7 @@ export default function Layout({ children }) {
           </>
         )}
       </AnimatePresence>
+
     </div>
   );
 }
