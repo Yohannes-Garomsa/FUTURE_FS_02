@@ -1,9 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Leads from './Leads';
-import { leadsAPI } from '../../services/api';
 
 const mocks = vi.hoisted(() => ({
   getLeads: vi.fn(),
@@ -12,6 +10,7 @@ const mocks = vi.hoisted(() => ({
     role: 'admin',
     full_name: 'Admin User',
   },
+  useQuery: vi.fn(),
 }));
 
 vi.mock('../../services/api', () => ({
@@ -27,21 +26,15 @@ vi.mock('../../store/store', () => ({
   }),
 }));
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
+vi.mock('@tanstack/react-query', () => ({
+  useQuery: mocks.useQuery,
+}));
 
 const renderWithProviders = (ui) => {
   return render(
-    <QueryClientProvider client={queryClient}>
-      <MemoryRouter>
-        {ui}
-      </MemoryRouter>
-    </QueryClientProvider>
+    <MemoryRouter>
+      {ui}
+    </MemoryRouter>
   );
 };
 
@@ -57,7 +50,11 @@ describe('Leads Component', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mocks.getLeads.mockResolvedValue(sampleLeads);
+    mocks.useQuery.mockReturnValue({
+      data: sampleLeads,
+      isLoading: false,
+      refetch: vi.fn(),
+    });
   });
 
   it('renders the leads table with data', async () => {
@@ -105,8 +102,11 @@ describe('Leads Component', () => {
 
     await waitFor(() => screen.getByText('John Doe'));
 
-    const deleteButtons = screen.getAllByRole('button').filter(btn => btn.querySelector('svg.text-red-600') || btn.className.includes('text-red-600'));
-    // Since we have 2 leads, there should be 2 delete buttons
+    const deleteButtons = screen.getAllByRole('button').filter(btn => 
+      btn.className.includes('text-red-600')
+    );
+    
+    // There are 2 trash icons, one for each lead in sampleLeads
     fireEvent.click(deleteButtons[0]);
 
     expect(window.confirm).toHaveBeenCalledWith('Are you sure you want to delete this lead?');

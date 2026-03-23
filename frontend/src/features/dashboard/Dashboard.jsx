@@ -27,7 +27,7 @@ export default function Dashboard() {
   const { user } = useAuthStore();
   const [stats, setStats] = useState({
     totalLeads: 0,
-    activeDeads: 0,
+    activeDeals: 0,
     conversionRate: 0,
     revenue: 0,
     leadsByStatus: [],
