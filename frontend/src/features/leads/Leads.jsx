@@ -66,20 +66,20 @@ export default function Leads() {
   };
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      {loading && <div className="absolute inset-0 bg-white/50 flex items-center justify-center">Loading...</div>}
+    <div className="px-4 sm:px-6 lg:px-8 py-8 bg-gray-50/10 dark:bg-slate-950/20 min-h-full">
+      {loading && <div className="absolute inset-0 bg-white/50 dark:bg-slate-900/50 flex items-center justify-center z-10">Loading...</div>}
       <div className="sm:flex sm:items-center sm:justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">Leads</h1>
-          <p className="mt-1 text-sm text-gray-600">
-            Manage and track your leads, {user?.full_name}!
+          <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">Leads</h1>
+          <p className="mt-1 text-sm text-gray-600 dark:text-slate-400 font-medium">
+            Manage and track your leads, <span className="text-indigo-600 dark:text-indigo-400 font-bold">{user?.full_name}</span>!
           </p>
         </div>
         {canEditOrDelete && (
           <div className="mt-4 sm:mt-0">
             <button
               onClick={() => navigate("/leads/create")}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-black uppercase tracking-widest rounded-xl shadow-lg shadow-indigo-100 dark:shadow-indigo-900/20 text-white bg-indigo-600 hover:bg-indigo-700 transition-all active:scale-95"
             >
               <PlusCircleIcon className="h-5 w-5 mr-2" />
               Add Lead
@@ -88,10 +88,10 @@ export default function Leads() {
         )}
       </div>
 
-      <div className="bg-white rounded-lg shadow">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-medium text-gray-900">All Leads</h2>
+            <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase border-l-4 border-indigo-500 pl-4">All Leads</h2>
             <div className="flex items-center space-x-2">
               <div className="relative">
                 <MagnifyingGlassIcon className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -100,56 +100,56 @@ export default function Leads() {
                   placeholder="Search leads..."
                   value={searchTerm}
                   onChange={handleSearch}
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="pl-10 pr-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl text-sm font-bold text-gray-900 dark:text-slate-100 focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 transition-all outline-none placeholder:text-gray-400"
                 />
               </div>
             </div>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-100 dark:divide-slate-800">
+              <thead className="bg-gray-50/50 dark:bg-slate-800/50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest">
                     Name
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest">
                     Email
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest">
                     Company
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest">
                     Assigned To
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white dark:bg-slate-900 divide-y divide-gray-50 dark:divide-slate-800">
                 {filteredLeads.map((lead) => (
-                  <tr key={lead.id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <tr key={lead.id} className="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900 dark:text-slate-100">
                       {lead.full_name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500 dark:text-slate-400">
                       {lead.email}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500 dark:text-slate-400">
                       {lead.company || "-"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
-                        className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(lead.status)}`}
+                        className={`px-3 py-1 inline-flex text-[10px] font-black uppercase rounded-lg ${getStatusColor(lead.status)}`}
                       >
                         {lead.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500 dark:text-slate-400">
                       {lead.assigned_to_name || "Unassigned"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">

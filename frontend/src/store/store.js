@@ -51,3 +51,16 @@ export const useKanbanStore = create((set) => ({
   setKanbanData: (data) => set({ kanbanData: data }),
   setLoading: (status) => set({ loading: status }),
 }));
+
+export const useThemeStore = create(
+  persist(
+    (set) => ({
+      isDarkMode: false,
+      toggleTheme: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+      setDarkMode: (status) => set({ isDarkMode: status }),
+    }),
+    {
+      name: "theme-storage",
+    }
+  )
+);

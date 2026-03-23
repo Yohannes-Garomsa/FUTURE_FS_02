@@ -114,23 +114,23 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 space-y-8 bg-gray-50/30">
+    <div className="px-4 sm:px-6 lg:px-8 py-8 space-y-8 bg-gray-50/30 dark:bg-slate-950/50 min-h-full">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <div className="flex items-center gap-3 mb-1">
-             <h1 className="text-3xl font-black text-gray-900 tracking-tight">Executive Dashboard</h1>
-             <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[10px] font-black uppercase rounded-md border border-indigo-200">{user?.role} Access</span>
+             <h1 className="text-3xl font-black text-gray-900 dark:text-white tracking-tight text-shadow-glow">Executive Dashboard</h1>
+             <span className="px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-[10px] font-black uppercase rounded-md border border-indigo-200 dark:border-indigo-800">{user?.role} Access</span>
           </div>
-          <p className="text-gray-500 font-medium">Reporting intelligence for <span className="text-indigo-600 font-bold">{user?.full_name}</span> &bull; Strategy Room</p>
+          <p className="text-gray-500 dark:text-slate-400 font-medium">Reporting intelligence for <span className="text-indigo-600 dark:text-indigo-400 font-bold">{user?.full_name}</span> &bull; Strategy Room</p>
         </div>
         <div className="flex items-center gap-4">
            <div className="text-right hidden sm:block">
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Last Intelligence Update</p>
-              <p className="text-xs font-black text-gray-600">{lastUpdated.toLocaleTimeString()}</p>
+              <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest">Last Intelligence Update</p>
+              <p className="text-xs font-black text-gray-600 dark:text-slate-300">{lastUpdated.toLocaleTimeString()}</p>
            </div>
            <button 
              onClick={fetchDashboardData}
-             className="p-3 bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-indigo-600 hover:border-indigo-100 transition-all hover:shadow-lg active:scale-95"
+             className="p-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-gray-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-100 dark:hover:border-indigo-900 transition-all hover:shadow-lg active:scale-95"
            >
              <RefreshCw size={20} />
            </button>
@@ -138,31 +138,31 @@ export default function Dashboard() {
       </header>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {cards.map((card, idx) => (
-           <motion.div
-             key={card.title}
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ delay: idx * 0.1 }}
-             className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-indigo-200 transition-all relative overflow-hidden"
-           >
-             <div className={`absolute top-0 right-0 p-8 opacity-[0.03] text-${card.color}-600 group-hover:scale-125 transition-transform`}>
-                <card.icon size={80} strokeWidth={3} />
-             </div>
-             <div className="relative z-10 space-y-3">
-                <div className={`w-10 h-10 rounded-xl bg-${card.color}-50 flex items-center justify-center text-${card.color}-600`}>
-                   <card.icon size={22} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">{card.title}</p>
-                  <div className="flex items-baseline gap-1">
-                     <span className="text-2xl font-black text-gray-900">{card.prefix}{card.value}{card.suffix}</span>
-                     <span className="text-[10px] font-bold text-gray-400 uppercase">{card.unit}</span>
-                  </div>
-                </div>
-             </div>
-           </motion.div>
-        ))}
+          {cards.map((card, idx) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              className="group bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-900 transition-all relative overflow-hidden"
+            >
+              <div className={`absolute top-0 right-0 p-8 opacity-[0.03] dark:opacity-[0.05] text-${card.color}-600 group-hover:scale-125 transition-transform`}>
+                 <card.icon size={80} strokeWidth={3} />
+              </div>
+              <div className="relative z-10 space-y-3">
+                 <div className={`w-10 h-10 rounded-xl bg-${card.color}-50 dark:bg-${card.color}-900/30 flex items-center justify-center text-${card.color}-600 dark:text-${card.color}-400`}>
+                    <card.icon size={22} />
+                 </div>
+                 <div>
+                   <p className="text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest mb-1">{card.title}</p>
+                   <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-black text-gray-900 dark:text-white">{card.prefix}{card.value}{card.suffix}</span>
+                      <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase">{card.unit}</span>
+                   </div>
+                 </div>
+              </div>
+            </motion.div>
+          ))}
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -170,11 +170,11 @@ export default function Dashboard() {
             <motion.div 
                initial={{ opacity: 0, scale: 0.98 }}
                animate={{ opacity: 1, scale: 1 }}
-               className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100"
+               className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-800"
             >
                <div className="flex items-center justify-between mb-8">
-                 <h2 className="text-lg font-black text-gray-900 tracking-tight uppercase border-l-4 border-indigo-500 pl-4">Pipeline Distribution</h2>
-                 <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter">Volume by stage</p>
+                 <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase border-l-4 border-indigo-500 pl-4 text-shadow-glow">Pipeline Distribution</h2>
+                 <p className="text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-tighter">Volume by stage</p>
                </div>
                <div className="h-[350px]">
                   <ResponsiveContainer width="100%" height="100%">
@@ -202,11 +202,11 @@ export default function Dashboard() {
             <motion.div 
                initial={{ opacity: 0, scale: 0.98 }}
                animate={{ opacity: 1, scale: 1 }}
-               className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100"
+               className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-800"
             >
                <div className="flex items-center justify-between mb-8">
-                 <h2 className="text-lg font-black text-gray-900 tracking-tight uppercase border-l-4 border-amber-500 pl-4">Priority Breakdown</h2>
-                 <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter">Velocity metrics</p>
+                 <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase border-l-4 border-amber-500 pl-4 text-shadow-glow">Priority Breakdown</h2>
+                 <p className="text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-tighter">Velocity metrics</p>
                </div>
                <div className="h-[250px]">
                   <ResponsiveContainer width="100%" height="100%">
@@ -226,10 +226,10 @@ export default function Dashboard() {
             <motion.div 
                initial={{ opacity: 0, scale: 0.98 }}
                animate={{ opacity: 1, scale: 1 }}
-               className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100"
+               className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-800"
             >
                <div className="flex items-center justify-between mb-8">
-                 <h2 className="text-lg font-black text-gray-900 tracking-tight uppercase border-l-4 border-indigo-500 pl-4">Lead Sources</h2>
+                 <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase border-l-4 border-indigo-500 pl-4">Lead Sources</h2>
                </div>
                <div className="h-[300px] flex flex-col items-center">
                   <ResponsiveContainer width="100%" height="100%">

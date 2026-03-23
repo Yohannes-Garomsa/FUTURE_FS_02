@@ -14,9 +14,26 @@ code {
     source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/* Theme transitions */
+* {
+  @apply transition-colors duration-300;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.dark .text-shadow-glow {
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+}
+
 /* Custom styles */
 .btn-primary {
-  @apply bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md;
+  @apply bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-100 dark:shadow-indigo-900/20;
 }
 
 .btn-secondary {

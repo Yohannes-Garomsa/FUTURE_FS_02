@@ -41,9 +41,9 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex bg-white relative overflow-hidden">
+    <div className="min-h-screen flex bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
       {/* Visual Side */}
-      <div className="hidden lg:flex lg:w-1/2 bg-indigo-600 relative overflow-hidden flex-col justify-between p-16">
+      <div className="hidden lg:flex lg:w-1/2 bg-indigo-600 dark:bg-indigo-950 relative overflow-hidden flex-col justify-between p-16">
          <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
             <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-white blur-[120px]" />
             <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-indigo-400 blur-[100px]" />
@@ -106,7 +106,7 @@ export default function Login() {
                           name="email"
                           placeholder="executive@company.ai"
                           required
-                          className="w-full bg-gray-50 border border-gray-100 focus:border-indigo-500 focus:bg-white rounded-2xl py-3.5 pl-12 pr-4 outline-none font-bold text-gray-900 transition-all focus:ring-4 focus:ring-indigo-50"
+                          className="w-full bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-800 rounded-2xl py-3.5 pl-12 pr-4 outline-none font-bold text-gray-900 dark:text-white transition-all focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20"
                           value={formData.email}
                           onChange={handleChange}
                         />
@@ -125,7 +125,7 @@ export default function Login() {
                           name="password"
                           placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
                           required
-                          className="w-full bg-gray-50 border border-gray-100 focus:border-indigo-500 focus:bg-white rounded-2xl py-3.5 pl-12 pr-4 outline-none font-bold text-gray-900 transition-all focus:ring-4 focus:ring-indigo-50"
+                          className="w-full bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-slate-800 focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-800 rounded-2xl py-3.5 pl-12 pr-4 outline-none font-bold text-gray-900 dark:text-white transition-all focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20"
                           value={formData.password}
                           onChange={handleChange}
                         />
