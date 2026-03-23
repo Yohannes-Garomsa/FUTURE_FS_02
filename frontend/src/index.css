@@ -105,3 +105,17 @@ status-converted {
     @apply overflow-x-auto;
   }
 }
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 dark:bg-slate-800 rounded-full hover:bg-gray-300 dark:hover:bg-slate-700 transition-colors;
+}

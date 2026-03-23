@@ -174,13 +174,13 @@ export default function Layout({ children }) {
                            <div className="px-2 space-y-1">
                               <button 
                                 onClick={() => { navigate("/profile"); setIsUserMenuOpen(false); }}
-                                className="w-full flex items-center gap-4 px-4 py-2.5 text-sm font-bold text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-xl transition-all"
+                                className="w-full flex items-center gap-4 px-4 py-2.5 text-sm font-bold text-gray-600 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-xl transition-all"
                               >
                                  <UserIcon size={16} /> Identity Profile
                               </button>
                               <button 
                                 onClick={() => { handleLogout(); setIsUserMenuOpen(false); }}
-                                className="w-full flex items-center gap-4 px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 rounded-xl transition-all"
+                                className="w-full flex items-center gap-4 px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition-all"
                               >
                                  <LogOut size={16} /> Disconnect
                               </button>
