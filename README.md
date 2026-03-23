@@ -56,5 +56,29 @@ backend/
 ├── activities/      # Activity tracking
 ├── pipelines/       # Sales pipeline + stages
 ├── notifications/   # Notifications + Celery tasks
-└── analytics/       # Dashboard + reporting
+## Testing
+
+The project uses `pytest` for automated backend testing and includes a comprehensive test suite covering models, serializers, API endpoints, and RBAC permissions.
+
+### Backend Tests
+Run all tests:
+```bash
+cd backend
+./venv/bin/pytest
+```
+
+Run with coverage report:
+```bash
+cd backend
+./venv/bin/pytest --cov=.
+```
+
+### Frontend Tests
+Currently, the frontend relies on manual verification. For automated UI tests, it is recommended to set up **Vitest** or **Cypress**.
+
+### Troubleshooting Tests
+If tests fail due to database access:
+- Ensure you have a test database configured or are using SQLite for testing (check `crm_project/settings.py`).
+- Run `pytest --create-db` if you've made significant schema changes without migrations.
+
 ```
